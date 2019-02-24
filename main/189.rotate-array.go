@@ -28,21 +28,92 @@ import "fmt"
 */
 
 func main() {
-	nums := []int{1,2,3,4,5,6,7}
-	k :=3
-	rotate(nums, k)
+	nums := []int{1, 2, 3, 4, 5, 6, 7}
+	k := 3
+	//rotate1(nums, k)
+	//rotateOK(nums, k)
+	rotate3(nums, k)
 	fmt.Println(nums)
 }
 
 /**
 方法1:
+最能想到的就是每次右移1位，然后移动k次。
+每次右移1位：将最后一位(len-1)存住temp，然后从大到小将j赋值给j-1，最后temp赋值第0位即可
 
+时间复杂度：O(kn)
+空间复杂度：O(1)
+*/
+func rotate1(nums []int, k int) {
+	numsLen := len(nums)
+	k %= numsLen
+
+	for i := 0; i < k; i++ {
+		temp := nums[numsLen-1]
+		for j := numsLen - 1; j > 0; j-- {
+			nums[j] = nums[j-1]
+		}
+
+		nums[0] = temp
+	}
+}
+
+/**
+方法2:
+翻转的思路，假如是12345
+a.现将全部翻转54321
+b.将前k位翻转34521
+c.将k位后翻转34512
+即可实现右移的效果
 
 时间复杂度：O(n)
 空间复杂度：O(1)
 */
-func rotate(nums []int, k int)  {
+func rotateOK(nums []int, k int) {
+	numsLen := len(nums)
+	k %= numsLen
 
-
+	rotate2Reverse(nums, 0, numsLen-1)
+	rotate2Reverse(nums, 0, k-1)
+	rotate2Reverse(nums, k, numsLen-1)
 }
 
+/**
+实现翻转，思路很简单，采用双指针将最后一位和第一位进行交换
+*/
+func rotate2Reverse(nums []int, start int, end int) {
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
+	}
+}
+
+/**
+方法3:
+k位循环交换的思路，假如是12 3 45，k=2
+a.45 3 12
+b.45 132 =>45123
+即可实现右移的效果
+
+这里需要关注的是边界调节和终止条件
+
+时间复杂度：O(n^2/k)
+空间复杂度：O(1)
+*/
+func rotate3(nums []int, k int) {
+	numsLen := len(nums)
+	numsLenC := numsLen
+	k %= numsLen
+
+	i := 0
+	for i < numsLen && k != 0 {
+		for j := 0; j < k; j++ {
+			nums[i+j], nums[numsLen-k+j] = nums[numsLen-k+j], nums[i+j]
+		}
+
+		numsLenC -= k
+		i += k
+		k %= numsLenC
+	}
+}
