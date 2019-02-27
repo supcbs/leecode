@@ -23,7 +23,9 @@
 |121|Array|[best-time-to-buy-and-sell-stock](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)|[>>>](main/121.best-time-to-buy-and-sell-stock.go)|0226|
 |122|Array|[best-time-to-buy-and-sell-stock-ii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-ii.go)|0226|
 |123|Array|[best-time-to-buy-and-sell-stock-iii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iii.go)|0226|
+|128|Array|[longest-consecutive-sequence](https://leetcode-cn.com/problems/longest-consecutive-sequence/)|[>>>](main/128.longest-consecutive-sequence.go)|0227|
 |134|Array|[gas-station](https://leetcode-cn.com/problems/gas-station/)|[>>>](main/134.gas-station.go)|0224|
+|164|Array|[maximum-gap](https://leetcode-cn.com/problems/maximum-gap/)|[>>>](main/164.maximum-gap.go)|0227|
 |169|Array|[majority-element](https://leetcode-cn.com/problems/majority-element/)|[>>>](main/169.majority-element.go)|0224|
 |188|Array|[best-time-to-buy-and-sell-stock-iv](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iv.go)|0226|
 |189|Array|[rotate-array](https://leetcode-cn.com/problems/rotate-array/)|[>>>](main/189.rotate-array.go)|0224|
@@ -33,8 +35,10 @@
 |229|Array|[majority-element-ii](https://leetcode-cn.com/problems/majority-element-ii/)|[>>>](main/229.majority-element-ii.go)|0224|
 |274|Array|[h-index](https://leetcode-cn.com/problems/h-index/)|[>>>](main/274.h-index.go)|0224|
 |275|Array|[h-index](https://leetcode-cn.com/problems/h-index-ii/)|[>>>](main/275.h-index-ii.go)|0225|
+|287|Array|[find-the-duplicate-number](https://leetcode-cn.com/problems/find-the-duplicate-number/)|[>>>](main/287.find-the-duplicate-number.go)|0228|
 |299|Array|[bulls-and-cows](https://leetcode-cn.com/problems/bulls-and-cows/)|[>>>](main/299.bulls-and-cows.go)|0224|
 |309|Array|[best-time-to-buy-and-sell-stock-with-cooldown](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[>>>](main/309.best-time-to-buy-and-sell-stock-with-cooldown.go)|0226|
+|334|Array|[increasing-triplet-subsequence](https://leetcode-cn.com/problems/increasing-triplet-subsequence/)|[>>>](main/334.increasing-triplet-subsequence.go)|0227|
 
 
 
@@ -57,7 +61,9 @@
 |121|Array|[best-time-to-buy-and-sell-stock](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)|[>>>](main/121.best-time-to-buy-and-sell-stock.go)|0226|
 |122|Array|[best-time-to-buy-and-sell-stock-ii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-ii.go)|0226|
 |123|Array|[best-time-to-buy-and-sell-stock-iii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iii.go)|0226|
+|128|Array|[longest-consecutive-sequence](https://leetcode-cn.com/problems/longest-consecutive-sequence/)|[>>>](main/128.longest-consecutive-sequence.go)|0227|
 |134|Array|[gas-station](https://leetcode-cn.com/problems/gas-station/)|[>>>](main/134.gas-station.go)|0224|
+|164|Array|[maximum-gap](https://leetcode-cn.com/problems/maximum-gap/)|[>>>](main/164.maximum-gap.go)|0227|
 |169|Array|[majority-element](https://leetcode-cn.com/problems/majority-element/)|[>>>](main/169.majority-element.go)|0224|
 |188|Array|[best-time-to-buy-and-sell-stock-iv](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iv.go)|0226|
 |189|Array|[rotate-array](https://leetcode-cn.com/problems/rotate-array/)|[>>>](main/189.rotate-array.go)|0224|
@@ -66,9 +72,11 @@
 |220|Array|[contains-duplicate](https://leetcode-cn.com/problems/contains-duplicate-iii/)|[>>>](main/220.contains-duplicate-iii.go)|0225|
 |229|Array|[majority-element-ii](https://leetcode-cn.com/problems/majority-element-ii/)|[>>>](main/229.majority-element-ii.go)|0224|
 |274|Array|[h-index](https://leetcode-cn.com/problems/h-index/)|[>>>](main/274.h-index.go)|0224|
-|275|Array|[h-index](https://leetcode-cn.com/problems/h-index-ii/)|[>>>](main/275.h-index-ii.go)|0225|
+|275|Array|[h-index-ii](https://leetcode-cn.com/problems/h-index-ii/)|[>>>](main/275.h-index-ii.go)|0225|
+|287|Array|[find-the-duplicate-number](https://leetcode-cn.com/problems/find-the-duplicate-number/)|[>>>](main/287.find-the-duplicate-number.go)|0228|
 |299|Array|[bulls-and-cows](https://leetcode-cn.com/problems/bulls-and-cows/)|[>>>](main/299.bulls-and-cows.go)|0224|
 |309|Array|[best-time-to-buy-and-sell-stock-with-cooldown](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[>>>](main/309.best-time-to-buy-and-sell-stock-with-cooldown.go)|0226|
+|334|Array|[increasing-triplet-subsequence](https://leetcode-cn.com/problems/increasing-triplet-subsequence/)|[>>>](main/334.increasing-triplet-subsequence.go)|0227|
 
 
 ### Math
