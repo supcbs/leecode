@@ -25,6 +25,7 @@
 |123|Array|[best-time-to-buy-and-sell-stock-iii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iii.go)|0226|
 |128|Array|[longest-consecutive-sequence](https://leetcode-cn.com/problems/longest-consecutive-sequence/)|[>>>](main/128.longest-consecutive-sequence.go)|0227|
 |134|Array|[gas-station](https://leetcode-cn.com/problems/gas-station/)|[>>>](main/134.gas-station.go)|0224|
+|135|Array|[candy](https://leetcode-cn.com/problems/candy/)|[>>>](main/135.candy.go)|0228|
 |164|Array|[maximum-gap](https://leetcode-cn.com/problems/maximum-gap/)|[>>>](main/164.maximum-gap.go)|0227|
 |169|Array|[majority-element](https://leetcode-cn.com/problems/majority-element/)|[>>>](main/169.majority-element.go)|0224|
 |188|Array|[best-time-to-buy-and-sell-stock-iv](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iv.go)|0226|

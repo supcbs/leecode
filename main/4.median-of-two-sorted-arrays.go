@@ -30,6 +30,15 @@ func main() {
 	fmt.Println(5/2)
 }
 
+/**
+方法1:
+
+时间复杂度：O(n)
+空间复杂度：O(1)
+*/
+
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+
+
 	return 0
 }
