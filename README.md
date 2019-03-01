@@ -10,6 +10,7 @@
 |#|分类|题目|解|备注|
 |---|---|-------------|-----|---------|
 |1|Math|[Two Sum](https://leetcode.com/problems/two-sum/)|[>>>](main/1.two-sum.go)||
+|4|Array|[median-of-two-sorted-arrays](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)|[>>>](main/4.median-of-two-sorted-arrays.go)|0301|
 |11|Array|[container-with-most-water](https://leetcode-cn.com/problems/container-with-most-water/)|[>>>](main/11.container-with-most-water.go)|0226|
 |26|Array|[remove-duplicates-from-sorted-array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|[>>>](main/26.remove-duplicates-from-sorted-array.go)|0223|
 |27|Array|[Remove Element](https://leetcode-cn.com/problems/remove-element/)|[>>>](main/27.remove-element.go)|0223|
@@ -17,6 +18,8 @@
 |42|Array|[trapping-rain-water](https://leetcode-cn.com/problems/trapping-rain-water/)|[>>>](main/42.trapping-rain-water.go)|0227|
 |45|Array|[jump-game-ii](https://leetcode-cn.com/problems/jump-game-ii/)|[>>>](main/45.jump-game-ii.go)|0226|
 |55|Array|[jump-game](https://leetcode-cn.com/problems/jump-game/)|[>>>](main/55.jump-game.go)|0225|
+|56|Array|[merge-intervals](https://leetcode-cn.com/problems/merge-intervals/)|[>>>](main/56.merge-intervals.go)|0301|
+|57|Array|[insert-interval](https://leetcode-cn.com/problems/insert-interval/)|[>>>](main/57.insert-interval.go)|0301|
 |80|Array|[remove-duplicates-from-sorted-array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/)|[>>>](main/80.remove-duplicates-from-sorted-array-ii.go)|0223|
 |118|Array|[pascals-triangle](https://leetcode-cn.com/problems/pascals-triangle/)|[>>>](main/118.pascals-triangle.go)|0224|
 |119|Array|[pascals-triangle-ii](https://leetcode-cn.com/problems/pascals-triangle-ii/)|[>>>](main/118.pascals-triangle-ii.go)|0224|
@@ -37,9 +40,13 @@
 |274|Array|[h-index](https://leetcode-cn.com/problems/h-index/)|[>>>](main/274.h-index.go)|0224|
 |275|Array|[h-index](https://leetcode-cn.com/problems/h-index-ii/)|[>>>](main/275.h-index-ii.go)|0225|
 |287|Array|[find-the-duplicate-number](https://leetcode-cn.com/problems/find-the-duplicate-number/)|[>>>](main/287.find-the-duplicate-number.go)|0228|
+|289|Array|[game-of-life](https://leetcode-cn.com/problems/game-of-life/)|[>>>](main/289.game-of-life.go)|0301|
 |299|Array|[bulls-and-cows](https://leetcode-cn.com/problems/bulls-and-cows/)|[>>>](main/299.bulls-and-cows.go)|0224|
 |309|Array|[best-time-to-buy-and-sell-stock-with-cooldown](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[>>>](main/309.best-time-to-buy-and-sell-stock-with-cooldown.go)|0226|
+|321|Array|[？create-maximum-number](https://leetcode-cn.com/problems/create-maximum-number/)|[>>>](main/321.create-maximum-number.go)|0301|
+|327|Array|[？count-of-range-sum](https://leetcode-cn.com/problems/count-of-range-sum/)|[>>>](main/327.count-of-range-sum.go)|0301|
 |334|Array|[increasing-triplet-subsequence](https://leetcode-cn.com/problems/increasing-triplet-subsequence/)|[>>>](main/334.increasing-triplet-subsequence.go)|0227|
+|352|Array|[data-stream-as-disjoint-intervals](https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/)|[>>>](main/352.data-stream-as-disjoint-intervals.go)|0301|
 
 
 
@@ -49,6 +56,7 @@
 ### Array
 |#|分类|题目|解|备注|
 |---|---|-------------|-----|---------|
+|4|Array|[median-of-two-sorted-arrays](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)|[>>>](main/4.median-of-two-sorted-arrays.go)|0301|
 |11|Array|[container-with-most-water](https://leetcode-cn.com/problems/container-with-most-water/)|[>>>](main/11.container-with-most-water.go)|0226|
 |26|Array|[remove-duplicates-from-sorted-array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|[>>>](main/26.remove-duplicates-from-sorted-array.go)|0223|
 |27|Array|[Remove Element](https://leetcode-cn.com/problems/remove-element/)|[>>>](main/27.remove-element.go)|0223|
@@ -56,6 +64,8 @@
 |42|Array|[trapping-rain-water](https://leetcode-cn.com/problems/trapping-rain-water/)|[>>>](main/42.trapping-rain-water.go)|0227|
 |45|Array|[jump-game-ii](https://leetcode-cn.com/problems/jump-game-ii/)|[>>>](main/45.jump-game-ii.go)|0226|
 |55|Array|[jump-game](https://leetcode-cn.com/problems/jump-game/)|[>>>](main/55.jump-game.go)|0225|
+|56|Array|[merge-intervals](https://leetcode-cn.com/problems/merge-intervals/)|[>>>](main/56.merge-intervals.go)|0301|
+|57|Array|[insert-interval](https://leetcode-cn.com/problems/insert-interval/)|[>>>](main/57.insert-interval.go)|0301|
 |80|Array|[remove-duplicates-from-sorted-array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/)|[>>>](main/80.remove-duplicates-from-sorted-array-ii.go)|0223|
 |118|Array|[pascals-triangle](https://leetcode-cn.com/problems/pascals-triangle/)|[>>>](main/118.pascals-triangle.go)|0224|
 |119|Array|[pascals-triangle-ii](https://leetcode-cn.com/problems/pascals-triangle-ii/)|[>>>](main/118.pascals-triangle-ii.go)|0224|
@@ -75,9 +85,13 @@
 |274|Array|[h-index](https://leetcode-cn.com/problems/h-index/)|[>>>](main/274.h-index.go)|0224|
 |275|Array|[h-index-ii](https://leetcode-cn.com/problems/h-index-ii/)|[>>>](main/275.h-index-ii.go)|0225|
 |287|Array|[find-the-duplicate-number](https://leetcode-cn.com/problems/find-the-duplicate-number/)|[>>>](main/287.find-the-duplicate-number.go)|0228|
+|289|Array|[game-of-life](https://leetcode-cn.com/problems/game-of-life/)|[>>>](main/289.game-of-life.go)|0301|
 |299|Array|[bulls-and-cows](https://leetcode-cn.com/problems/bulls-and-cows/)|[>>>](main/299.bulls-and-cows.go)|0224|
 |309|Array|[best-time-to-buy-and-sell-stock-with-cooldown](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[>>>](main/309.best-time-to-buy-and-sell-stock-with-cooldown.go)|0226|
+|321|Array|[？create-maximum-number](https://leetcode-cn.com/problems/create-maximum-number/)|[>>>](main/321.create-maximum-number.go)|0301|
+|327|Array|[？count-of-range-sum](https://leetcode-cn.com/problems/count-of-range-sum/)|[>>>](main/327.count-of-range-sum.go)|0301|
 |334|Array|[increasing-triplet-subsequence](https://leetcode-cn.com/problems/increasing-triplet-subsequence/)|[>>>](main/334.increasing-triplet-subsequence.go)|0227|
+|352|Array|[data-stream-as-disjoint-intervals](https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/)|[>>>](main/352.data-stream-as-disjoint-intervals.go)|0301|
 
 
 ### Math
