@@ -41,7 +41,7 @@ func main() {
 ---
 需要注意的是:如果包含汉字，直接用for range比for ；；省事，前者是unicode后者是ascii码
 
-时间复杂度：O(n)
+时间复杂度：O()
 空间复杂度：O(1)
 */
 func strStr(haystack string, needle string) int {
