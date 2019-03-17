@@ -1,124 +1,66 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 /**
 
 题目:
-
-给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。
-你可以假设除了数字 0 之外，这两个数字都不会以零开头。
+给出两个 非空 的链表用来表示两个非负的整数。
+其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 
 示例：
-
 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
 输出：7 -> 0 -> 8
 原因：342 + 465 = 807
 
 */
+
 type ListNode struct {
-	Val  int
+	Val int
 	Next *ListNode
 }
 
+func buildList(nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+	root := &ListNode{
+		Val:nums[0],
+	}
+	tmp := root
+	for i:=1;i<len(nums);i++{
+		tmp.Next = &ListNode{
+			Val:nums[i],
+		}
+		tmp = tmp.Next
+	}
+
+	return root
+}
+
 func main() {
-	//l1 := &ListNode{
-	//	Val: 2,
-	//	Next: &ListNode{
-	//		Val: 4,
-	//		Next: &ListNode{
-	//			Val:  3,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//
-	//l2 := &ListNode{
-	//	Val: 5,
-	//	Next: &ListNode{
-	//		Val: 6,
-	//		Next: &ListNode{
-	//			Val:  4,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-
-	//l1 := &ListNode{
-	//	Val: 1,
-	//	Next: &ListNode{
-	//		Val: 8,
-	//		Next: nil,
-	//	},
-	//}
-	//
-	//l2 := &ListNode{
-	//	Val: 0,
-	//	Next: nil,
-	//}
-
-	l1 := &ListNode{
-		Val: 5,
-		Next: nil,
+	l1:=buildList([]int{2,4,3})
+	l2:=buildList([]int{5,6,4})
+	r := addTwoNumbersOK(l1,l2)
+	for r != nil {
+		fmt.Println(r)
+		r = r.Next
 	}
-
-	l2 := &ListNode{
-		Val: 5,
-		Next: nil,
-	}
-
-	l3 := addTwoNumbers(l2, l1)
-	fmt.Println(l3.Val, *l3.Next, (*l3.Next).Val)
-	//fmt.Println(l3.Val, *l3.Next, (*l3.Next).Val, *(*l3.Next).Next, (*(*l3.Next).Next).Val, (*(*l3.Next).Next).Next)
 }
 
-// 1. 不用递归
-func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
-	returnl := &ListNode{}
-	var x, y, sum int
-	p, q, carry := l1, l2, 0
-	temp := returnl
-	for p != nil || q != nil {
-		if p != nil {
-			x = p.Val
-		} else {
-			x = 0
-		}
+/**
+方法1:
 
-		if q != nil {
-			y = q.Val
-		} else {
-			y = 0
-		}
+使用递归进行处理。
+关键点在于超过10的时候，需要进一位，下一位不存在的话需要进行初始化。
 
-		sum = x + y + carry
-		carry = sum / 10
-		temp.Val = sum % 10
-		if (p == nil || p.Next == nil) && (q == nil || q.Next == nil) {
-			break
-		}
-		temp.Next = &ListNode{}
-		temp = temp.Next
+还有一个点就是有可能l1和l2不一样长，所以在这种情况下每次进行加减的时候需要进行初始化
 
-		if p != nil {
-			p = p.Next
-		}
-		if q != nil {
-			q = q.Next
-		}
-	}
-
-	if carry > 0 {
-		temp.Next = &ListNode{1,nil}
-	}
-
-	return returnl
-}
-
-
-// 2.使用递归
+时间复杂度：O(n)
+空间复杂度：O(1)
+*/
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {
 		l1 = &ListNode{}
@@ -132,18 +74,46 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	result.Val = l1.Val + l2.Val
 
 	if result.Val > 9 {
-		result.Val -= 10
-		if l1.Next == nil {
+		result.Val %= 10
+		if l1.Next == nil{
 			l1.Next = &ListNode{}
 		}
-		l1.Next.Val += 1
+		l1.Next.Val +=1
 	}
 
 	if l1.Next == nil && l2.Next == nil {
 		return result
 	}
 
-	result.Next = addTwoNumbers(l1.Next, l2.Next)
+	result.Next = addTwoNumbers(l1.Next,l2.Next)
+
 	return result
 }
 
+/**
+非递归的方式
+ */
+func addTwoNumbersOK(l1 *ListNode, l2 *ListNode) *ListNode {
+	head := &ListNode{}
+	h := head
+	count := 0
+	for l1!=nil||l2!=nil||count!=0 {
+		if l1!=nil {
+			count += l1.Val
+			l1 = l1.Next
+		}
+		if l2 !=nil {
+			count += l2.Val
+			l2 = l2.Next
+		}
+
+		node := &ListNode {
+			Val: count %10,
+		}
+		head.Next = node
+		head = head.Next
+		count /=10
+	}
+
+	return h.Next
+}
