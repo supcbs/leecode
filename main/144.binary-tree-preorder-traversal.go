@@ -132,6 +132,7 @@ func preorderTraversal2(root *TreeNode) []int {
 		stack = stack[:len(stack)-1]
 		ret = append(ret, curNode.Val)
 
+		// 注意这里是右边先
 		if curNode.Right != nil {
 			stack = append(stack, curNode.Right)
 		}
