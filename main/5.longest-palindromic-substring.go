@@ -21,6 +21,18 @@ func main() {
 	fmt.Println(longestPalindrome(s))
 }
 
+func full_p(str string,begin ,end int) {
+	if begin == end {
+		return str
+	} else {
+		for i:=begin;i<=end;i++{
+			str[begin],str[i] = str[i],str[begin]
+			full_p(str, begin+1,end)
+			str[begin],str[i] = str[i],str[begin]
+		}
+	}
+}
+
 /**
 方法1:
 

@@ -42,8 +42,13 @@
 |57|Array|[insert-interval](https://leetcode-cn.com/problems/insert-interval/)|[>>>](main/57.insert-interval.go)|0301|
 |58|String|[length-of-last-word](https://leetcode-cn.com/problems/length-of-last-wordr/)|[>>>](main/58.length-of-last-word.go)|0304|
 |61|LinkedList|[rotate-list](https://leetcode-cn.com/problems/rotate-list/)|[>>>](main/61.rotate-list.go)|0317|
+|62|Dynamic Programming|[unique-paths](https://leetcode-cn.com/problems/unique-paths/)|[>>>](main/62.unique-paths.go)|0324|
+|63|Dynamic Programming|[unique-paths-ii](https://leetcode-cn.com/problems/unique-paths-ii/)|[>>>](main/63.unique-paths-ii.go)|0324|
+|64|Dynamic Programming|[minimum-path-sum](https://leetcode-cn.com/problems/minimum-path-sum/)|[>>>](main/64.minimum-path-sum.go)|0327|
 |65|String|[valid-number](https://leetcode-cn.com/problems/valid-number/)|[>>>](main/65.valid-number.go)|0311|
 |68|String|[text-justification](https://leetcode-cn.com/problems/text-justification/)|[>>>](main/68.text-justification.go)|0311|
+|70|Dynamic Programming|[climbing-stairs](https://leetcode-cn.com/problems/climbing-stairs/)|[>>>](main/70.climbing-stairs.go)|0324|
+|72|Dynamic Programming|[edit-distance](https://leetcode-cn.com/problems/edit-distance/)|[>>>](main/72.edit-distance.go)|0327|
 |75|Array|[sort-colors](https://leetcode-cn.com/problems/sort-colors/)|[>>>](main/75.sort-colors.go)|0303|
 |76|String|[minimum-window-substring](https://leetcode-cn.com/problems/minimum-window-substring/)|[>>>](main/76.minimum-window-substring.go)|0311|
 |80|Array|[remove-duplicates-from-sorted-array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/)|[>>>](main/80.remove-duplicates-from-sorted-array-ii.go)|0223|
@@ -70,6 +75,7 @@
 |116|BinaryTree|[pascals-triangle](https://leetcode-cn.com/problems/pascals-triangle/)|[>>>](main/118.pascals-triangle.go)|0323|
 |118|Array|[pascals-triangle](https://leetcode-cn.com/problems/pascals-triangle/)|[>>>](main/118.pascals-triangle.go)|0224|
 |119|Array|[pascals-triangle-ii](https://leetcode-cn.com/problems/pascals-triangle-ii/)|[>>>](main/118.pascals-triangle-ii.go)|0224|
+|120|Dynamic Programming|[triangle](https://leetcode-cn.com/problems/triangle/)|[>>>](main/120.triangle.go)|0324|
 |121|Array|[best-time-to-buy-and-sell-stock](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)|[>>>](main/121.best-time-to-buy-and-sell-stock.go)|0226|
 |122|Array|[best-time-to-buy-and-sell-stock-ii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-ii.go)|0226|
 |123|Array|[best-time-to-buy-and-sell-stock-iii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)|[>>>](main/121.best-time-to-buy-and-sell-stock-iii.go)|0226|
@@ -80,6 +86,7 @@
 |131|String|[？reverse-words-in-a-string](https://leetcode-cn.com/problems/palindrome-partitioning/)|[>>>](main/131.palindrome-partitioning.go)|0313|
 |134|Array|[gas-station](https://leetcode-cn.com/problems/gas-station/)|[>>>](main/134.gas-station.go)|0224|
 |135|Array|[candy](https://leetcode-cn.com/problems/candy/)|[>>>](main/135.candy.go)|0228|
+|139|Dynamic Programming|[word-break](https://leetcode-cn.com/problems/word-break/)|[>>>](main/139.word-break.go)|0325|
 |141|LinkedList|[linked-list-cycle](https://leetcode-cn.com/problems/linked-list-cycle/)|[>>>](main/141.linked-list-cycle.go)|0314|
 |142|LinkedList|[linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)|[>>>](main/142.linked-list-cycle-ii.go)|0316|
 |143|LinkedList|[reorder-list](https://leetcode-cn.com/problems/reorder-list/)|[>>>](main/143.reorder-list.go)|0316|
@@ -117,6 +124,7 @@
 |273|String|[integer-to-english-words](https://leetcode-cn.com/problems/integer-to-english-words/)|[>>>](main/273.integer-to-english-words.go)|0308|
 |274|Array|[h-index](https://leetcode-cn.com/problems/h-index/)|[>>>](main/274.h-index.go)|0224|
 |275|Array|[h-index](https://leetcode-cn.com/problems/h-index-ii/)|[>>>](main/275.h-index-ii.go)|0225|
+|279|Dynamic Programming|[perfect-squares](https://leetcode-cn.com/problems/perfect-squares/)|[>>>](main/279.perfect-squares.go)|0324|
 |283|Array|[move-zeroes](https://leetcode-cn.com/problems/move-zeroes/)|[>>>](main/283.move-zeroes.go)|0303|
 |287|Array|[find-the-duplicate-number](https://leetcode-cn.com/problems/find-the-duplicate-number/)|[>>>](main/287.find-the-duplicate-number.go)|0228|
 |289|Array|[game-of-life](https://leetcode-cn.com/problems/game-of-life/)|[>>>](main/289.game-of-life.go)|0301|
@@ -126,6 +134,7 @@
 |309|Array|[best-time-to-buy-and-sell-stock-with-cooldown](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[>>>](main/309.best-time-to-buy-and-sell-stock-with-cooldown.go)|0226|
 |316|String|[remove-duplicate-letters](https://leetcode-cn.com/problems/remove-duplicate-letters/)|[>>>](main/316.remove-duplicate-letters.go)|0307|
 |321|Array|[？create-maximum-number](https://leetcode-cn.com/problems/create-maximum-number/)|[>>>](main/321.create-maximum-number.go)|0301|
+|322|Dynamic Programming|[coin-change](https://leetcode-cn.com/problems/coin-change/)|[>>>](main/322.coin-change.go)|0327|
 |324|Array|[wiggle-sort-ii](https://leetcode-cn.com/problems/wiggle-sort-ii/)|[>>>](main/324.wiggle-sort-ii.go)|0303|
 |327|Array|[？count-of-range-sum](https://leetcode-cn.com/problems/count-of-range-sum/)|[>>>](main/327.count-of-range-sum.go)|0301|
 |328|LinkedList|[odd-even-linked-list](https://leetcode-cn.com/problems/odd-even-linked-list/)|[>>>](main/328.odd-even-linked-list.go)|0315|
@@ -133,6 +142,7 @@
 |344|String|[reverse-string](https://leetcode-cn.com/problems/reverse-string/)|[>>>](main/344.reverse-string.go)|0305|
 |345|String|[reverse-vowels-of-a-string](https://leetcode-cn.com/problems/reverse-vowels-of-a-string/)|[>>>](main/345.reverse-vowels-of-a-string.go)|0305|
 |352|Array|[data-stream-as-disjoint-intervals](https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/)|[>>>](main/352.data-stream-as-disjoint-intervals.go)|0301|
+|375|Dynamic Programming|[guess-number-higher-or-lower-ii](https://leetcode-cn.com/problems/guess-number-higher-or-lower-ii/)|[>>>](main/375.guess-number-higher-or-lower-ii.go)|0326|
 |376|Array|[wiggle-subsequence](https://leetcode-cn.com/problems/wiggle-subsequence/)|[>>>](main/376.wiggle-subsequence.go)|0303|
 |383|String|[ransom-note](https://leetcode-cn.com/problems/ransom-note/)|[>>>](main/383.ransom-note.go)|0305|
 |387|String|[first-unique-character-in-a-string](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)|[>>>](main/387.first-unique-character-in-a-string.go)|0305|
@@ -303,6 +313,32 @@
 |257|BinaryTree|[binary-tree-paths](https://leetcode-cn.com/problems/binary-tree-paths/)|[>>>](main/257.binary-tree-paths.go)|0319|
 |337|BinaryTree|[house-robber-iii](https://leetcode-cn.com/problems/house-robber-iii/)|[>>>](main/337.house-robber-iii.go)|0320|
 
+
+### Dynamic Programming
+|#|分类|题目|解|备注|
+|---|---|-------------|-----|---------|
+
+|62|Dynamic Programming|[unique-paths](https://leetcode-cn.com/problems/unique-paths/)|[>>>](main/62.unique-paths.go)|0324|
+|63|Dynamic Programming|[unique-paths-ii](https://leetcode-cn.com/problems/unique-paths-ii/)|[>>>](main/63.unique-paths-ii.go)|0324|
+
+|64|Dynamic Programming|[minimum-path-sum](https://leetcode-cn.com/problems/minimum-path-sum/)|[>>>](main/64.minimum-path-sum.go)|0327|
+|70|Dynamic Programming|[climbing-stairs](https://leetcode-cn.com/problems/climbing-stairs/)|[>>>](main/70.climbing-stairs.go)|0324|
+
+
+|72|Dynamic Programming|[edit-distance](https://leetcode-cn.com/problems/edit-distance/)|[>>>](main/72.edit-distance.go)|0327|
+
+
+|120|Dynamic Programming|[triangle](https://leetcode-cn.com/problems/triangle/)|[>>>](main/120.triangle.go)|0324|
+|139|Dynamic Programming|[word-break](https://leetcode-cn.com/problems/word-break/)|[>>>](main/139.word-break.go)|0325|
+
+
+|279|Dynamic Programming|[perfect-squares](https://leetcode-cn.com/problems/perfect-squares/)|[>>>](main/279.perfect-squares.go)|0324|
+
+
+
+|322|Dynamic Programming|[coin-change](https://leetcode-cn.com/problems/coin-change/)|[>>>](main/322.coin-change.go)|0327|
+
+|375|Dynamic Programming|[guess-number-higher-or-lower-ii](https://leetcode-cn.com/problems/guess-number-higher-or-lower-ii/)|[>>>](main/375.guess-number-higher-or-lower-ii.go)|0326|
 
 
 
