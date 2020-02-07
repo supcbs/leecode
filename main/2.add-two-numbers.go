@@ -59,7 +59,7 @@ func main() {
 还有一个点就是有可能l1和l2不一样长，所以在这种情况下每次进行加减的时候需要进行初始化
 
 时间复杂度：O(n)
-空间复杂度：O(1)
+空间复杂度：O(n)
 */
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 /**
@@ -88,4 +89,91 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		m2 = nums2[p2]
 	}
 	return float64(m1+m2) * 0.5
+}
+
+
+func findMedianSortedArrays2(nums1 []int, nums2 []int) float64 {
+	// 保证nums1长度小于nums2
+	if len(nums1) > len(nums2) {
+		nums1, nums2 = nums2, nums1
+	}
+	// 特例1: 包含了不能再减少区间的特殊情况(并不都是特殊的, 但数量少无所谓)
+	if len(nums1) == 0 || len(nums2) <= 4 {
+		if len(nums1) > 0 {
+			for _, num := range nums1 {
+				nums2 = append(nums2, num)
+			}
+			sort.Ints(nums2)
+		}
+		if len(nums2) % 2 == 1 {
+			return float64(nums2[len(nums2)/2])
+		} else {
+			return float64(nums2[len(nums2)/2] + nums2[len(nums2)/2-1])/2
+		}
+	}
+	// 特例2: 有一个区间长度为1, 另一个长度大于3的情况
+	if len(nums1) == 1 && len(nums2) > 3 {
+		if len(nums2) % 2 == 1 {
+			nums2 = nums2[len(nums2)/2-1:len(nums2)/2+2] //保留3位
+		} else {
+			nums2 = nums2[len(nums2)/2-1:len(nums2)/2+1] //保留2位
+		}
+		return findMedianSortedArrays(nums1, nums2)
+	}
+	// 特例3: 有一个区间长度为2, 另一个区间大于4
+	if len(nums1) == 2 && len(nums2) > 4 {
+		if len(nums2) % 2 == 1 {
+			nums2 = nums2[len(nums2)/2-1:len(nums2)/2+2] // 保留3位
+		} else {
+			nums2 = nums2[len(nums2)/2-2:len(nums2)/2+2] // 保留4位
+		}
+		return findMedianSortedArrays(nums1, nums2)
+	}
+	// 能减少区间的情况
+	odd1 := len(nums1) % 2
+	odd2 := len(nums2) % 2
+	mid1 := 0.0
+	mid2 := 0.0
+	if odd1 == 1 {
+		mid1 = float64(nums1[len(nums1)/2])
+	} else {
+		mid1 = float64(nums1[len(nums1)/2] + nums1[len(nums1)/2-1])/2
+	}
+	if odd2 == 1 {
+		mid2 = float64(nums2[len(nums2)/2])
+	} else {
+		mid2 = float64(nums2[len(nums2)/2] + nums2[len(nums2)/2-1])/2
+	}
+
+	// 如果恰好相等, 直接返回
+	if mid1==mid2 {
+		return mid1
+	}
+
+	// 两边能减少的最大的数量
+	removeNum := 0
+	if odd1 == 1 {
+		removeNum = len(nums1)/2
+	} else {
+		removeNum = len(nums1)/2-1
+	}
+	if odd2 == 1{
+		if len(nums2)/2 < removeNum {
+			removeNum = len(nums2)/2
+		}
+	} else {
+		if len(nums2)/2-1 < removeNum {
+			removeNum = len(nums2)/2-1
+		}
+	}
+
+	if mid2 > mid1 {
+		nums1 = nums1[removeNum:]
+		nums2 = nums2[0:len(nums2)-removeNum]
+	} else {
+		nums1 = nums1[0:len(nums1)-removeNum]
+		nums2 = nums2[removeNum:]
+
+	}
+	return findMedianSortedArrays(nums1, nums2)
 }

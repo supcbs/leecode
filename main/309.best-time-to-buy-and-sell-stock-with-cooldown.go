@@ -25,6 +25,41 @@ func main() {
 
 /**
 方法1:
+可以把问题转化为持有和未持有的问题。
+持有的话，肯定是：今天买入，或者前一天未卖出
+未持有的话，肯定是：今日卖出，或者前一天卖出今日属于冷冻阶段
+
+时间复杂度：O(n)
+空间复杂度：O(1)
+*/
+func maxProfitWithCooldownOK(prices []int) int {
+	pricesLen := len(prices)
+	if pricesLen <= 1 {
+		return 0
+	}
+
+	lastHold := 0
+	todayHold := -prices[0]
+	lastNoHold := 0
+	todayNoHold := 0
+
+	for i := 1; i < pricesLen; i++ {
+		lastHold = todayHold
+		if i >= 2 {
+			todayHold = getMaxV(todayHold, lastNoHold-prices[i])
+		} else {
+			todayHold = getMaxV(todayHold, -prices[i])
+		}
+
+		lastNoHold = todayNoHold
+		todayNoHold = getMaxV(todayNoHold, lastHold+prices[i])
+	}
+
+	return todayNoHold
+}
+
+/**
+方法2:
 思路同188和123题。
 设置三个数组
 buy[i]代表截止至i天，买时最大利润
@@ -81,40 +116,7 @@ func getMaxPrices(prices ...int) int {
 	return maxPrice
 }
 
-/**
-方法2:
-可以把问题转化为持有和未持有的问题。
-持有的话，肯定是：今天买入，或者前一天未卖出
-未持有的话，肯定是：今日卖出，或者前一天卖出今日属于冷冻阶段
 
-时间复杂度：O(n)
-空间复杂度：O(1)
-*/
-func maxProfitWithCooldownOK(prices []int) int {
-	pricesLen := len(prices)
-	if pricesLen <= 1 {
-		return 0
-	}
-
-	lastHold := 0
-	todayHold := -prices[0]
-	lastNoHold := 0
-	todayNoHold := 0
-
-	for i := 1; i < pricesLen; i++ {
-		lastHold = todayHold
-		if i >= 2 {
-			todayHold = getMaxV(todayHold, lastNoHold-prices[i])
-		} else {
-			todayHold = getMaxV(todayHold, -prices[i])
-		}
-
-		lastNoHold = todayNoHold
-		todayNoHold = getMaxV(todayNoHold, lastHold+prices[i])
-	}
-
-	return todayNoHold
-}
 
 func getMaxV(a, b int) int {
 	if a >= b {

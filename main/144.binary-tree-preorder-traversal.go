@@ -85,7 +85,7 @@ https://blog.csdn.net/zgaoq/article/details/79089819
 */
 var ret []int
 func preorderTraversal(root *TreeNode) []int {
-	ret := []int{}
+	//ret = []int{}
 
 	help(root)
 	return ret

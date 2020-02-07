@@ -54,3 +54,23 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 
 	return false
 }
+
+
+func containsNearbyDuplicateOK(nums []int, k int) bool {
+	numsLen := len(nums)
+	if numsLen <= 0 || k <= 0 {
+		return false
+	}
+
+	// key记录具体数字。value记录索引
+	tmpMap := make(map[int]int)
+	for index,num := range nums {
+		if _,ok := tmpMap[num]; ok && index - tmpMap[num] <= k {
+			return true
+		}
+
+		tmpMap[num] = index
+	}
+
+	return false
+}

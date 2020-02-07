@@ -25,14 +25,109 @@ import (
 */
 
 func main() {
-	nums := []int{2, 2}
-	k := 3
-	t := 0
+	nums := []int{-1,-1}
+	k := 1
+	t := -1
 	//r := containsNearbyAlmostDuplicate(nums, k, t)
-	r := containsNearbyAlmostDuplicateOK(nums, k, t)
+	r := containsNearbyAlmostDuplicate88(nums, k, t)
 
 	fmt.Println(r)
 }
+
+func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
+	numsLen := len(nums)
+	if numsLen <= 0 {
+		return false
+	}
+	w := t+1
+	bucket := make(map[int]int)
+	for i:=0;i<numsLen;i++ {
+		index := getBucket(nums[i],w)
+		// 如果当前桶存在则直接返回
+		if _,ok := bucket[index];ok {
+			return true
+		}
+
+		// 查看一下前一个桶是否存在
+		if preNum,ok := bucket[index-1];ok {
+			if nums[i] - preNum <= t {
+				return true
+			}
+		}
+
+		// 查看后一个桶是否存在
+		if nextNum,ok := bucket[index+1];ok {
+			if nextNum - nums[i] <= t {
+				return true
+			}
+		}
+
+		bucket[index] = nums[i]
+
+
+		// 删除k之外的数，来保持桶当中的数都是符合|i-j| <= k
+		if len(bucket)>k {
+			delete(bucket,getBucket(nums[i-k],w))
+		}
+	}
+
+	return false
+}
+
+func getBucket(num, w int) int {
+	if num < 0 {
+		return (num + 1) / w - 1
+	} else {
+		return num / w
+	}
+}
+
+// 这里利用桶排序的思想, 把数据划分为[-t-1, -1], [0, t], [t+1, 2t+1], [2t+2, 3t+2]...
+// 同一个桶内的元素间距一定小于等于t, 相邻桶的元素判断下间距即可
+// 另外用map来做滑动窗口, 窗口的大小最大为k
+func containsNearbyAlmostDuplicate88(nums []int, k int, t int) bool {
+	if t < 0 || k <= 0 {
+		return false
+	}
+
+	bucketRecord := make(map[int]int)
+	var w int = t + 1
+
+	for index, num := range nums {
+		bucket := getBucket(num , w)
+		_, has := bucketRecord[bucket]
+		if has {
+			return true
+		}
+
+		prevBucketNum, prevBucketHas := bucketRecord[bucket - 1]
+		if prevBucketHas {
+			if num >= prevBucketNum && num - prevBucketNum <= t {
+				return true
+			}
+			if num < prevBucketNum && prevBucketNum - num <= t {
+				return true
+			}
+		}
+		nextBucketNum, nextBucketHas := bucketRecord[bucket + 1]
+		if nextBucketHas {
+			if num >= nextBucketNum && num - nextBucketNum <= t {
+				return true
+			}
+			if num < nextBucketNum && nextBucketNum - num <= t {
+				return true
+			}
+		}
+
+		bucketRecord[bucket] = num
+		// 窗口大小判断, 否则最早入窗口的出窗口
+		if len(bucketRecord) > k {
+			delete(bucketRecord, getBucket(nums[index - k], w))
+		}
+	}
+	return false
+}
+
 
 /**
 方法1:
@@ -45,7 +140,7 @@ func main() {
 时间复杂度：O(n^2)
 空间复杂度：O(1)
 */
-func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
+func containsNearbyAlmostDuplicate12(nums []int, k int, t int) bool {
 	if k < 0 || t < 0 {
 		return false
 	}
@@ -120,3 +215,49 @@ func containsNearbyAlmostDuplicateOK(nums []int, k int, t int) bool {
 
 	return false
 }
+
+
+func containsNearbyAlmostDuplicate99(nums []int, k int, t int) bool {
+	numsLen := len(nums)
+	if numsLen <= 0 {
+		return false
+	}
+	w := t+1
+	bucket := make(map[int]int)
+	for i:=0;i<numsLen;i++ {
+		index := nums[i] / w
+		// 如果当前桶存在则直接返回
+		if _,ok := bucket[index];ok {
+			return true
+		}
+
+		// 查看一下前一个桶是否存在
+		if _,ok := bucket[index-1];ok {
+			if nums[i] - bucket[index-1] <= t {
+				return true
+			}
+		}
+
+		// 查看后一个桶是否存在
+		if _,ok := bucket[index+1];ok {
+			if bucket[index+1] - nums[i] <= t {
+				return true
+			}
+		}
+
+		bucket[index] = nums[i]
+
+
+		// 删除k之外的数，来保持桶当中的数都是符合|i-j| <= k
+		if i>k {
+			if _, ok:= bucket[nums[i-k]/w];ok{
+				delete(bucket,nums[i-k]/w)
+			}
+		}
+	}
+
+	return false
+}
+
+
+

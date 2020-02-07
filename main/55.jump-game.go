@@ -22,7 +22,7 @@ import "fmt"
 */
 
 func main() {
-	nums := []int{2,0,0}
+	nums := []int{2, 0, 0}
 	r := canJump(nums)
 	fmt.Println(r)
 }
@@ -48,4 +48,29 @@ func canJump(nums []int) bool {
 	}
 
 	return k == 0
+}
+
+/**
+方法2:
+
+正着数，设置当前max = max(nums[i] + 1, max),如果i>max则说明在这一步无论如何也走不到最后
+
+时间复杂度：O(n)
+空间复杂度：O(1)
+*/
+func canJump2(nums []int) bool {
+
+	numsLen := len(nums)
+	max := 0
+	for i := 0; i < numsLen; i++ {
+		if i > max {
+			return false
+		}
+
+		if nums[i]+i > max {
+			max = nums[i] + i
+		}
+	}
+
+	return true
 }

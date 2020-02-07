@@ -45,14 +45,10 @@ func main() {
 */
 func maxProfitII(prices []int) int {
 	profit := 0
-
-	pricesLen := len(prices)
-	for i := 0; i < pricesLen-1; i++ {
-		if prices[i] > prices[i+1] {
-			continue
+	for i:=0 ;i<len(prices)-1;i++{
+		if prices[i] < prices[i+1] {
+			profit += prices[i+1] - prices[i]
 		}
-
-		profit += prices[i+1] - prices[i]
 	}
 
 	return profit
