@@ -5,31 +5,24 @@ import "fmt"
 /**
 
 题目:
-给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+给给定一个所有节点为非负值的二叉搜索树，求树中任意两节点的差的绝对值的最小值。
 
-假设一个二叉搜索树具有如下特征：
-
-节点的左子树只包含小于当前节点的数。
-节点的右子树只包含大于当前节点的数。
-所有左子树和右子树自身必须也是二叉搜索树。
-示例 1:
+示例 :
 
 输入:
-    2
-   / \
-  1   3
-输出: true
-示例 2:
 
-输入:
-    5
-   / \
-  1   4
-     / \
-    3   6
-输出: false
-解释: 输入为: [5,1,4,null,null,3,6]。
-     根节点的值为 5 ，但是其右子节点值为 4
+   1
+    \
+     3
+    /
+   2
+
+输出:
+1
+
+解释:
+最小绝对差为1，其中 2 和 1 的差的绝对值为 1（或者 2 和 3）。
+注意: 树中至少有2个节点。
 
 */
 
@@ -101,37 +94,49 @@ func printTree(t *TreeNode) {
 
 func main() {
 	t := buildTree([]int{5,1,4})
-	r := isValidBST(t)
+	r := getMinimumDifference(t)
 	fmt.Println(r)
 }
 
 /**
-方法1:
+方法：
 
-中序遍历，这道题的核心在于，中序遍历是越来越大的，
+这道题一开始想歪了，实际上由于是搜索二叉树，所以任意节点差最小值一定出现在相邻的两个节点中。
+
+中序遍历 + 记录上一个节点的值做差值即可
 
 时间复杂度：O(n)
-空间复杂度：O(h)
-*/
-var pre *TreeNode
-func isValidBST(root *TreeNode) bool {
-	pre = nil
-	return help(root)
+空间复杂度：O(1)
+ */
+var prev int
+var res int
+func getMinimumDifference(root *TreeNode) int {
+	prev = -1
+	res = int(^uint(0) >> 1)
+	help(root)
+	return res
 }
 
-func help(root *TreeNode) bool {
+func help(root *TreeNode) {
 	if root == nil {
-		return true
+		return
 	}
 
-	if help(root.Left) == false  {
-		return false
-	}
+	help(root.Left)
 
-	if pre != nil && root.Val <= pre.Val {
-		return false
+	// 这一步是关键
+	if prev >= 0 {
+		if root.Val - prev < res {
+			res = root.Val - prev
+		}
 	}
-
-	pre = root
-	return help(root.Right)
+	prev = root.Val
+	help(root.Right)
+	return
 }
+
+
+
+
+
+

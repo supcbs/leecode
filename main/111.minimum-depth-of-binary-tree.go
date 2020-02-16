@@ -114,3 +114,34 @@ func help(root *TreeNode, depth int, min *int) {
 	help(root.Left, depth, min)
 	help(root.Right, depth, min)
 }
+
+
+func minDepthOK(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
+	// 如果左右子树都为nil，则直接返回高度1
+	if root.Left == nil && root.Right == nil {
+		return 1
+	}
+
+	l := minDepth(root.Left)
+	r := minDepth(root.Right)
+
+	if root.Left == nil {
+		return r + 1
+	}
+	if root.Right == nil {
+		return l + 1
+	}
+
+	return Min(l, r) + 1
+}
+
+func Min(a,b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}

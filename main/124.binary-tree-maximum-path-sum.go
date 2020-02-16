@@ -123,3 +123,38 @@ func max(a, b int) int {
 	}
 	return b
 }
+
+//var sum int
+//func maxPathSum(root *TreeNode) int {
+//	sum = root.Val
+//	help(root)
+//
+//	return sum
+//}
+//
+//func help(root *TreeNode) int {
+//	if root == nil {
+//		return 0
+//	}
+//
+//	l := max(help(root.Left),0)
+//	r := max(help(root.Right),0)
+//
+//	sum = max(l + r + root.Val, sum)
+//
+//	return max(l + root.Val, r + root.Val)
+//}
+//
+//func max(a int,b int) int {
+//	if a > b {
+//		return a
+//	}
+//	return b
+//}
+
+
+
+
+
+
+

@@ -223,7 +223,7 @@ func breadthFirst(node *TreeNode) []int {
 // 二叉树深度优先遍历-前序遍历
 
 
-// 深度
+// 深度 dfs
 func getDepth(node *TreeNode) int {
 	if node == nil {
 		return 0

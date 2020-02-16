@@ -96,39 +96,20 @@ func main() {
 前序遍历进行判定
 
 时间复杂度：O(n)
-空间复杂度：O(1)
+空间复杂度：O(h)
 */
 
 func isSameTree(p *TreeNode, q *TreeNode) bool {
-	if p == nil && q == nil{
-		return true
-	}
-
-	ret := help(p,q)
-	return ret
-}
-
-func help(p *TreeNode, q *TreeNode) bool {
 	if p == nil && q == nil {
 		return true
 	}
 
-	if (p != nil && q == nil) ||(p == nil && q != nil) {
+	if p == nil || q == nil {
 		return false
 	}
 
-	if q.Val != p.Val {
-		return false
-	}
+	l := isSameTree(p.Left, q.Left)
+	r := isSameTree(p.Right, q.Right)
 
-	r := help(p.Left,q.Left)
-	if r == false {
-		return false
-	}
-	r = help(p.Right,q.Right)
-	if r == false {
-		return false
-	}
-
-	return true
+	return l && r && (p.Val == q.Val)
 }

@@ -87,7 +87,7 @@ func main() {
 这种姿势不优雅，看递归的方式
 
 时间复杂度：O(n)
-空间复杂度：O(1)
+空间复杂度：O(h)
 */
 func isSymmetric(root *TreeNode) bool {
 	if root == nil {
@@ -142,25 +142,20 @@ func isSymmetric(root *TreeNode) bool {
 空间复杂度：O(1)
 */
 func isSymmetricOK(root *TreeNode) bool {
-	if root == nil {
-		return true
-	}
-
-	if root.Left == nil && root.Right == nil {
-		return true
-	}
-
-	return help(root.Left, root.Right)
+	return help(root, root)
 }
 
-func help(t1 *TreeNode, t2 *TreeNode) bool {
-	if t1 == nil && t2 == nil {
+func help(p *TreeNode, q *TreeNode) bool {
+	if p == nil && q == nil {
 		return true
 	}
 
-	if t1 != nil && t2 != nil && t1.Val == t2.Val {
-		return help(t1.Left, t2.Right) && help(t2.Left, t1.Right)
+	if p == nil || q == nil {
+		return false
 	}
 
-	return false
+	l := help(p.Left, q.Right)
+	r := help(p.Right, q.Left)
+
+	return l && r && p.Val == q.Val
 }
