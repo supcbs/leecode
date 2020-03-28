@@ -144,3 +144,20 @@ func preorderTraversal2(root *TreeNode) []int {
 
 	return ret
 }
+
+var ret []int
+func preorderTraversal(root *TreeNode) []int {
+	ret = []int{}
+	preOrderHelp(root)
+	return ret
+}
+func preOrderHelp(node *TreeNode) {
+	// 节点为nil，说明遍历尾巴了
+	if node == nil {
+		return
+	}
+	// 中序遍历操作是放在中间
+	ret = append(ret, node.Val)
+	preOrderHelp(node.Left)
+	preOrderHelp(node.Right)
+}

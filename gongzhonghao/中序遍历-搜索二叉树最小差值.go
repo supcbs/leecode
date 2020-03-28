@@ -2,30 +2,6 @@ package main
 
 import "fmt"
 
-/**
-
-题目:
-给给定一个所有节点为非负值的二叉搜索树，求树中任意两节点的差的绝对值的最小值。
-
-示例 :
-
-输入:
-
-   1
-    \
-     3
-    /
-   2
-
-输出:
-1
-
-解释:
-最小绝对差为1，其中 2 和 1 的差的绝对值为 1（或者 2 和 3）。
-注意: 树中至少有2个节点。
-
-*/
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -72,8 +48,8 @@ func buildTree(nums []int) *TreeNode {
 }
 
 func printTree(t *TreeNode) {
-	ret := make([]int,0)
-	stack := make([]*TreeNode,0)
+	ret := make([]int, 0)
+	stack := make([]*TreeNode, 0)
 	stack = append(stack, t)
 	for len(stack) > 0 {
 		cur := stack[0]
@@ -81,11 +57,11 @@ func printTree(t *TreeNode) {
 		ret = append(ret, cur.Val)
 
 		if cur.Left != nil {
-			stack = append(stack,cur.Left)
+			stack = append(stack, cur.Left)
 		}
 
 		if cur.Right != nil {
-			stack = append(stack,cur.Right)
+			stack = append(stack, cur.Right)
 		}
 	}
 
@@ -93,21 +69,12 @@ func printTree(t *TreeNode) {
 }
 
 func main() {
-	t := buildTree([]int{3,9,20,15,7})
-	r := getMinimumDifference(t)
+	t := []int{1,-1,3,2}
+	d := buildTree(t)
+	r := getMinimumDifference(d)
 	fmt.Println(r)
 }
 
-/**
-方法：
-
-这道题一开始想歪了，实际上由于是搜索二叉树，所以任意节点差最小值一定出现在相邻的两个节点中。
-
-中序遍历 + 记录上一个节点的值做差值即可
-
-时间复杂度：O(n)
-空间复杂度：O(1)
- */
 var prev int
 var res int
 func getMinimumDifference(root *TreeNode) int {
@@ -134,9 +101,3 @@ func help(root *TreeNode) {
 	help(root.Right)
 	return
 }
-
-
-
-
-
-

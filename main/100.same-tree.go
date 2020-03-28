@@ -84,9 +84,9 @@ func buildTree(nums []int) *TreeNode {
 }
 
 func main() {
-	t1 := buildTree([]int{1, 2,1})
-	t2 := buildTree([]int{1, 1,2})
-	r := isSameTree(t1,t2)
+	t1 := buildTree([]int{1, 2, 1})
+	t2 := buildTree([]int{1, 1, 2})
+	r := isSameTree(t1, t2)
 	fmt.Println(r)
 }
 
