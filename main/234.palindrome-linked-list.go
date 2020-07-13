@@ -46,7 +46,7 @@ func buildList(nums []int) *ListNode {
 }
 
 func main() {
-	l := buildList([]int{1, 2, 3,3, 2,1})
+	l := buildList([]int{1, 2, 3,5,3, 2,1})
 	r := isPalindrome(l)
 	fmt.Println(r)
 }
@@ -68,50 +68,42 @@ func main() {
 时间复杂度：O(n)
 空间复杂度：O(1)
 */
+/**
+关键点在于：快慢指针判断中间位置，然后顺道翻转慢指针之前的链表。
 
+有两个不同的地方：
+1.这里的翻转不是要head，也就是只需要记住上一个即可
+2.判断奇偶可以根据快指针的来判断，如果最好快指针有值则为奇数
+*/
 func isPalindrome(head *ListNode) bool {
-	slow,fast := head,head
-	isOdd := false
+	if head == nil || head.Next == nil {
+		return true
+	}
 
-	for fast != nil {
+	slow := head
+	fast := head
+	var pre,cur *ListNode
+
+	for fast != nil && fast.Next != nil {
+		cur = slow
 		slow = slow.Next
-		fast = fast.Next
-		if fast != nil {
-			fast = fast.Next
-		} else {
-			isOdd = true
-		}
-		fmt.Println(slow,fast)
+		fast = fast.Next.Next
+
+		cur.Next = pre
+		pre = cur
 	}
 
-	q:=reverse(head, slow)
-
-	if isOdd && q!=nil {
-		q = q.Next
+	if fast != nil {
+		slow = slow.Next
 	}
-	fmt.Println("12-",q,head,slow)
-	//for q!=nil{
-	//	q=q.Next
-	//	fmt.Println(q)
-	//}
-	for slow != nil {
-		if slow.Val != q.Val {
+
+	for cur != nil {
+		if slow.Val != cur.Val {
 			return false
 		}
+		cur = cur.Next
 		slow = slow.Next
-		q = q.Next
 	}
 
 	return true
-}
-func reverse (head *ListNode, tail *ListNode) *ListNode {
-	var p *ListNode
-	q := head
-	for q != nil && q!=tail {
-		tmp := q.Next
-		q.Next = p
-		p = q
-		q = tmp
-	}
-	return p
 }

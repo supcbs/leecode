@@ -91,6 +91,13 @@ func preorder(root *Node) []int {
 	return res
 }
 
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
 func help(root *Node, res *[]int) {
 	if root == nil {
 		return

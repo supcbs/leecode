@@ -17,13 +17,13 @@ import (
 */
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
 func main() {
-	l:=buildList([]int{1,2,3,4,4})
-	r := removeElements(l,4)
+	l := buildList([]int{1, 2, 3, 4, 4})
+	r := removeElements(l, 4)
 	for r != nil {
 		fmt.Println(r)
 		r = r.Next
@@ -35,12 +35,12 @@ func buildList(nums []int) *ListNode {
 		return nil
 	}
 	root := &ListNode{
-		Val:nums[0],
+		Val: nums[0],
 	}
 	tmp := root
-	for i:=1;i<len(nums);i++{
+	for i := 1; i < len(nums); i++ {
 		tmp.Next = &ListNode{
-			Val:nums[i],
+			Val: nums[i],
 		}
 		tmp = tmp.Next
 	}
@@ -63,7 +63,7 @@ prev指向新头
 空间复杂度：O(1)
 */
 func removeElements(head *ListNode, val int) *ListNode {
-	if head==nil {
+	if head == nil {
 		return head
 	}
 
@@ -73,7 +73,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	prev := &newh
 	for head != nil {
 		if head.Val == val {
-			prev.Next= head.Next
+			prev.Next = head.Next
 		} else {
 			prev = head
 		}

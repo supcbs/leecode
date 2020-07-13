@@ -21,14 +21,16 @@ import "fmt"
 */
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
 func main() {
-	l:=buildList([]int{1,2,3,4,5})
-	r := removeNthFromEnd(l,2)
-	fmt.Println(r,r.Next,r.Next.Next,r.Next.Next.Next)
+	//l:=buildList([]int{1,2,3,4,5})
+	//r := removeNthFromEnd2(l,2)
+	l := buildList([]int{1})
+	r := removeNthFromEnd(l, 1)
+	fmt.Println(r) //,r.Next,r.Next.Next,r.Next.Next.Next)
 }
 
 func buildList(nums []int) *ListNode {
@@ -36,12 +38,12 @@ func buildList(nums []int) *ListNode {
 		return nil
 	}
 	root := &ListNode{
-		Val:nums[0],
+		Val: nums[0],
 	}
 	tmp := root
-	for i:=1;i<len(nums);i++{
+	for i := 1; i < len(nums); i++ {
 		tmp.Next = &ListNode{
-			Val:nums[i],
+			Val: nums[i],
 		}
 		tmp = tmp.Next
 	}
@@ -58,50 +60,20 @@ j先走n-1步，然后ij指针一起走，直到j到尾巴，i的位置就是需
 空间复杂度：O(1)
 */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	if head == nil || n < 1{
+	if head == nil || n < 0 {
 		return nil
 	}
 
-	i := head
-	j := head
-
-	// j先走n步
-	for n - 1 > 0 {
-		j = j.Next
-		n--
+	fast := &ListNode{
+		Next: head,
 	}
-	var prevI *ListNode
-	for j.Next != nil {
-		prevI = i
-		i = i.Next
-		j = j.Next
-		fmt.Println("j",j,i)
-	}
-
-	fmt.Println(i)
-	if prevI == nil {
-		head = head.Next
-	} else {
-		prevI.Next = i.Next
-	}
-
-
-	return head
-}
-
-
-func removeNthFromEndOK(head *ListNode, n int) *ListNode {
-	if head == nil {
-		return nil
-	}
-
-	fast := head
 	slow := &ListNode{
-		Next:head,
+		Next: head,
 	}
 
-	if n - 1 >0 {
+	for n > 0 {
 		fast = fast.Next
+		n--
 	}
 
 	for fast.Next != nil {
@@ -109,8 +81,10 @@ func removeNthFromEndOK(head *ListNode, n int) *ListNode {
 		slow = slow.Next
 	}
 
+	// 有可能只有一个节点，且删除第一个，那么此时slow实际上一步没走
 	if slow.Next == head {
-		return head.Next
+		head = head.Next
+		return head
 	}
 
 	slow.Next = slow.Next.Next

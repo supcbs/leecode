@@ -28,7 +28,7 @@ import (
 */
 
 func main() {
-	s := "abcabcbb"
+	s := "ababcbb"
 	l := lengthOfLongestSubstring(s)
 	fmt.Println("result",l)
 }
