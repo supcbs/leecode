@@ -91,7 +91,7 @@ func numRescueBoats2(people []int, limit int) int {
 func quickSort(arr []int, start, end int) {
 	if start < end {
 		i, j := start, end
-		key := arr[(start+end)/2]
+		key := arr[start + (end - start)/2]
 		for i <= j {
 			for arr[i] < key {
 				i++
@@ -156,4 +156,3 @@ func numRescueBoatsWithNoLimit(people []int, limit int) int {
 
 	return num
 }
-
