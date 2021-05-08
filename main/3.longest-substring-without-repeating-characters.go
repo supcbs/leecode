@@ -29,7 +29,7 @@ import (
 
 func main() {
 	s := "ababcbb"
-	l := lengthOfLongestSubstring(s)
+	l := lengthOfLongestSubstringOK(s)
 	fmt.Println("result",l)
 }
 
