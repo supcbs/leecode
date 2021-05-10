@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 /**
 
@@ -66,4 +69,31 @@ func minSubArrayLen(s int, nums []int) int {
 	return minLen %(numsLen + 1)
 }
 
+func minSubArrayLen(target int, nums []int) int {
+	// 边界条件判断
+	if len(nums) <= 0 {
+		return 0
+	}
+
+	// 初始值设置
+	i, j := 0, 0 // 滑动指针
+	minLen := math.MaxInt32 // 子数组最小长度
+	sum := 0 // 子数组的和
+
+	// 滑动窗口实现
+	for j < len(nums) {
+		sum += nums[j]
+		if sum >= target {
+			diff := j - i + 1
+			if minLen > diff {
+				minLen = diff
+			}
+			sum -= nums[i]
+			i++
+		}
+		j++
+	}
+
+	return minLen % (len(nums) + 1)
+}
 
