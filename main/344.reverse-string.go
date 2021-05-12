@@ -44,3 +44,38 @@ func reverseString(s []byte) string {
 
 	return string(s)
 }
+
+
+func reverseString2(s []byte)  {
+	// 边界条件
+	if len(s) <= 0 {
+		return
+	}
+
+	// 初始值设置
+	i := 0
+	j := len(s) - 1
+
+	recursion(s, i, j)
+
+	// // 交换逻辑
+	// for i <= j {
+	//     s[i], s[j] = s[j], s[i]
+	//     i++
+	//     j--
+	// }
+
+	return
+}
+
+func recursion(s []byte, i, j int)  {
+	if i >= j {
+		return
+	}
+	s[i], s[j] = s[j], s[i]
+	i++
+	j--
+
+	recursion(s, i, j)
+	return
+}
