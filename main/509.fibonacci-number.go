@@ -7,18 +7,26 @@ import (
 /**
 
 题目:
-给你字符串 s 和整数 k 。
-请返回字符串 s 中长度为 k 的单个子字符串中可能包含的最大元音字母数。
-英文中的 元音字母 为（a, e, i, o, u）。
+斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：
+
+F(0) = 0，F(1) = 1
+F(n) = F(n - 1) + F(n - 2)，其中 n > 1
+给你 n ，请计算 F(n) 。
 
 示例 1：
-输入：s = "abciiidef", k = 3
-输出：3
-解释：子字符串 "iii" 包含 3 个元音字母。
+输入：2
+输出：1
+解释：F(2) = F(1) + F(0) = 1 + 0 = 1
 示例 2：
-输入：s = "aeiou", k = 2
+输入：3
 输出：2
-解释：任意长度为 2 的子字符串都包含 2 个元音字母。
+解释：F(3) = F(2) + F(1) = 1 + 1 = 2
+示例 3：
+输入：4
+输出：3
+解释：F(4) = F(3) + F(2) = 2 + 1 = 3
+ 
+提示：0 <= n <= 30
 
 */
 
@@ -36,42 +44,19 @@ func main() {
 没限制人员的解法
 
 
-时间复杂度：O(n)
-空间复杂度：O(1)
+时间复杂度：O(2^n)
+空间复杂度：O(n)
 */
-func maxVowels(s string, k int) int {
-	// 边界条件判断
-	if len(s) < 0 || k == 0 {
+func fib(n int) int {
+	// 边界条件
+	if n == 0 {
 		return 0
 	}
 
-	// 初始化必要参数
-	i, j := 0, 0
-	sum, max := 0, 0
-	data := make(map[string]int, 0)
-	data["a"] = 1
-	data["e"] = 1
-	data["i"] = 1
-	data["o"] = 1
-	data["u"] = 1
-
-	// 滑动窗口处理。
-	for j < len(s) {
-		for j - i + 1 > k {
-			if _, ok := data[string(s[i])]; ok {
-				sum--
-			}
-			i++
-		}
-		if _, ok := data[string(s[j])]; ok {
-			sum++
-		}
-
-		if sum > max {
-			max = sum
-		}
-		j++
+	if n == 1 {
+		return 1
 	}
 
-	return max
+	// 开始递归
+	return fib(n - 1) + fib(n - 2)
 }
