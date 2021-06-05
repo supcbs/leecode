@@ -93,3 +93,47 @@ func maxSubArrayOK(nums []int) int {
 
 	return ret
 }
+
+func maxSubArray(nums []int) int {
+	return maxSubArrayRecursion(nums, 0, len(nums) - 1).mSum
+}
+
+type Status struct {
+	lSum, rSum, mSum, iSum int
+}
+
+// 既然是分治，先摆出递归的样子
+func maxSubArrayRecursion(nums []int, l ,r int) Status {
+	// 边界条件
+	if l == r {
+		return Status{nums[l],nums[l],nums[l],nums[l]}
+	}
+
+	// 区分两个区间
+	mid := (l+r) >> 1
+	// 左区间
+	lSub := maxSubArrayRecursion(nums, l, mid)
+	// 右区间
+	rSub := maxSubArrayRecursion(nums, mid+1, r)
+
+	return pushUp(lSub, rSub)
+}
+
+func pushUp(l, r Status) Status {
+	// 区间和
+	iSum := l.iSum + r.iSum
+	// 以l为左端点最大
+	lSum := Max(l.lSum, l.iSum + r.lSum)
+	// 以r为左端点最大
+	rSum := Max(r.rSum, r.iSum + l.rSum)
+	// 以最大字段和
+	mSum := Max(Max(l.mSum, r.mSum), l.rSum + r.lSum)
+	return Status{lSum, rSum, mSum, iSum}
+}
+
+func Max(i,j int) int {
+	if i > j {
+		return j
+	}
+	return i
+}

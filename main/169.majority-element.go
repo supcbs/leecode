@@ -18,7 +18,7 @@ import "fmt"
 */
 
 func main() {
-	nums := []int{2,2,1,1,1,2,2}
+	nums := []int{5,5,6}
 	r := majorityElement(nums)
 	fmt.Println(r)
 }
@@ -30,7 +30,7 @@ func main() {
 时间复杂度：O(n)
 空间复杂度：O(1)
 */
-func majorityElement(nums []int) int {
+func _majorityElement(nums []int) int {
 	var targetNum,count int
 
 	for _,v :=range nums {
@@ -46,4 +46,43 @@ func majorityElement(nums []int) int {
 	}
 
 	return targetNum
+}
+
+func majorityElement(nums []int) int {
+	return majorityElementRecursion(nums, 0, len(nums) - 1)
+}
+
+// 递归数组元素
+func majorityElementRecursion(nums []int, l, r int) int {
+	// 终止条件
+	if l == r {
+		return nums[l]
+	}
+
+	// 求出左右子问题
+	mid := l + (r - l)/2
+	left := majorityElementRecursion(nums, l, mid)
+	right := majorityElementRecursion(nums, mid + 1, r)
+
+	if left == right {
+		return left
+	}
+
+	leftCount := CalCount(nums, l, r, left)
+	rightCount := CalCount(nums, l, r, right)
+
+	if leftCount > rightCount {
+		return left
+	}
+
+	return right
+}
+
+func CalCount(nums []int, l int,r int, target int) (num int) {
+	for i := l; i <= r; i++ {
+		if nums[i] == target {
+			num++
+		}
+	}
+	return num
 }
